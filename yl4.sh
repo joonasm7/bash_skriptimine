@@ -3,6 +3,7 @@
 #Kasutajate lisamise skript, mis võtab andmed kahest erinevast failist
 #Joonas Masing
 #
+#
 if [ $# -ne 2 ]; then
     echo "Kasutusjuhend: $0 kasutajad ja paroolid"
 else

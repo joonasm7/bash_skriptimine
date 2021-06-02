@@ -3,6 +3,7 @@
 #Lisa kasutaja
 #Joonas Masing
 #
+#
 if [ $# -ne 1 ]; then
 	echo "Kasutusjuhend: $0 kasutajanimi"	
 else
