@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+#Kasutajate lisamise skript
+#Joonas Masing
+#
+if [ $# -ne 1 ]; then
+    echo "Kasutusjuhend: $0 failinimi"	
+else
+  failinimi=$1
+  if [ -f $failinimi -a -r $failinimi ]; then
+    echo "fail on korras"
+    for nimi in $(cat $failinimi)
+    do
+      kasutajanimi=$(echo "$nimi" | cut -f1 -d:)
+#kui fail on kättesaadav tähendab et sisu on nähtab ja echo asemel kutsutakse skirpt
+      echo $nimi
+      sh lisa_kasutaja $kasutajanimi 
+#paneme lisa_kasutaja skirpti tööle
+      echo "$nimi" | chpasswd
+    done
+  else
+    echo "probleem failiga $failinimi"
+  fi
+#parameetrite kontrolli lõpp, korras
+fi
+
